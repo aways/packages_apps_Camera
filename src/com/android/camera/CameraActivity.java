@@ -132,28 +132,31 @@ public class CameraActivity extends ActivityBase
     @Override
     public void onCameraSelected(final int i) {
         if (mPaused) return;
+        boolean canReuse = canReuseScreenNail();
         if (i != mCurrentModuleIndex) {
             mPaused = true;
-            CameraScreenNail screenNail = getCameraScreenNail();
-            if (screenNail != null) {
-                if (mCameraSwitchAnimator != null && mCameraSwitchAnimator.isRunning()) {
-                    mCameraSwitchAnimator.cancel();
-                }
-                mCameraSwitchAnimator = ObjectAnimator.ofFloat(
-                        screenNail, "alpha", screenNail.getAlpha(), 0f);
-                mCameraSwitchAnimator.addListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        super.onAnimationEnd(animation);
-                        doChangeCamera(i);
-                    }
-                });
-                mCameraSwitchAnimator.start();
-            } else {
-                doChangeCamera(i);
+            CameraHolder.instance().keep();
+            closeModule(mCurrentModule);
+            mCurrentModuleIndex = i;
+            switch (i) {
+                case VIDEO_MODULE_INDEX:
+                    mCurrentModule = new VideoModule();
+                    break;
+                case PHOTO_MODULE_INDEX:
+                    mCurrentModule = new PhotoModule();
+                    break;
+                case PANORAMA_MODULE_INDEX:
+                    mCurrentModule = new PanoramaModule();
+                    break;
+                case LIGHTCYCLE_MODULE_INDEX:
+                    mCurrentModule = LightCycleHelper.createPanoramaModule();
+                    break;
+                case GALLERY_MODULE_INDEX:
+                    break;
             }
-
         }
+        openModule(mCurrentModule, canReuse);
+        mCurrentModule.onOrientationChanged(mLastRawOrientation);
     }
 
     private void doChangeCamera(int i) {
