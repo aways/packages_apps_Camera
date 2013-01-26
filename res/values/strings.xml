@@ -467,13 +467,34 @@ CHAR LIMIT = NONE] -->
     <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
     <string name="remember_location_yes">Yes</string>
 
-     <!-- More Settings screen, power button title -->
-     <string name="pref_camera_power_shutter_title">Power shutter</string>
-     <string name="pref_camera_power_shutter_default">off</string>
-
      <!-- Settings screen, storage title -->
      <string name="pref_camera_storage_title">Use External</string>
      <string name="pref_camera_storage_title_default">No</string>
+
+     <!-- More Settings screen, power button title -->
+     <string name="pref_camera_power_shutter_title">Power shutter</string>
+     <string name="pref_camera_power_shutter_default" translatable="false">off</string>
+
+     <!-- Settings screen, ISO -->
+     <string name="pref_camera_iso_title" translatable="false">ISO</string>
+     <string name="pref_camera_iso_default" translatable="false">auto</string>
+
+     <!-- Settings screen, ISO dialog radio button choices -->
+     <string name="pref_camera_iso_entry_auto">Auto</string>
+     <string name="pref_camera_iso_entry_isodeblur">Auto (HJR)</string>
+     <string name="pref_camera_iso_entry_isosports">Sports</string>
+     <string name="pref_camera_iso_entry_isonight">Night</string>
+     <string name="pref_camera_iso_entry_isomovie">Movie</string>
+     <string name="pref_camera_iso_entry_iso6400" translatable="false">6400</string>
+     <string name="pref_camera_iso_entry_iso3200" translatable="false">3200</string>
+     <string name="pref_camera_iso_entry_iso1600" translatable="false">1600</string>
+     <string name="pref_camera_iso_entry_iso1200" translatable="false">1200</string>
+     <string name="pref_camera_iso_entry_iso1000" translatable="false">1000</string>
+     <string name="pref_camera_iso_entry_iso800" translatable="false">800</string>
+     <string name="pref_camera_iso_entry_iso400" translatable="false">400</string>
+     <string name="pref_camera_iso_entry_iso200" translatable="false">200</string>
+     <string name="pref_camera_iso_entry_iso100" translatable="false">100</string>
+     <string name="pref_camera_iso_entry_iso50" translatable="false">50</string>
 
     <!-- Settings screen, JPEG Quality -->
     <string name="pref_camera_jpeg_title">JPEG Quality</string>
