@@ -145,9 +145,6 @@ public class Util {
     // For setting video size before recording starts
     private static boolean sEarlyVideoSize;
 
-    // For setting video desired profile size
-    private static boolean sProfileVideoSize;
-
     // Samsung ZSL mode
     private static boolean sEnableZSL;
 
