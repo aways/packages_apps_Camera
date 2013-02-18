@@ -139,6 +139,9 @@ public class Util {
     // HTC camcorder mode
     private static boolean sHTCCamMode;
 
+    // For setting video desired profile size
+    private static boolean sProfileVideoSize;
+
     // For setting video size before recording starts
     private static boolean sEarlyVideoSize;
 
