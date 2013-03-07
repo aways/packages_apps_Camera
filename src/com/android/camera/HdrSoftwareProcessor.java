@@ -86,7 +86,7 @@ public class HdrSoftwareProcessor {
             mRSHost.setBitmapInput(mSourceBitmap, i);
 
             // try to use as few memory as possible
-            mSourceBitmap.recycle();    
+            mSourceBitmap.recycle();
         }
     }
 

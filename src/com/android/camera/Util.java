@@ -105,7 +105,9 @@ public class Util {
 
     public static boolean isCameraHdrSupported(Parameters params) {
         List<String> supported = params.getSupportedSceneModes();
-        return (supported != null) && supported.contains(SCENE_MODE_HDR);
+        boolean ret = (supported != null) && supported.contains(SCENE_MODE_HDR);
+        if (ret && sEnableSoftwareHDR) { sEnableSoftwareHDR = false; }
+        return ret;
     }
 
     @TargetApi(ApiHelper.VERSION_CODES.ICE_CREAM_SANDWICH)
@@ -150,6 +152,12 @@ public class Util {
 
     // Workaround for QC cameras with broken face detection on front camera
     private static boolean sNoFaceDetectOnFrontCamera;
+    private static boolean sNoFaceDetectOnBackCamera;
+
+    // Software HDR based on manual shots with multiple exposure
+    private static boolean sEnableSoftwareHDR;
+    private static boolean sDoSoftwareHDRShot;
+    private static int sSoftwareHDRExposureSettleTime;
 
     // Software HDR based on manual shots with multiple exposure
     private static boolean sEnableSoftwareHDR;
@@ -176,6 +184,8 @@ public class Util {
         sEnableZSL = context.getResources().getBoolean(R.bool.enableZSL);
         sNoFaceDetectOnFrontCamera = context.getResources().getBoolean(
                 R.bool.noFaceDetectOnFrontCamera);
+        sNoFaceDetectOnBackCamera = context.getResources().getBoolean(
+                R.bool.noFaceDetectOnBackCamera);
 
         sEnableSoftwareHDR = !context.getResources().getBoolean(R.bool.disableSoftwareHDR);
         sSoftwareHDRExposureSettleTime = context.getResources().getInteger(
@@ -225,6 +235,9 @@ public class Util {
 
     public static boolean noFaceDetectOnFrontCamera() {
         return sNoFaceDetectOnFrontCamera;
+    }
+    public static boolean noFaceDetectOnBackCamera() {
+        return sNoFaceDetectOnBackCamera;
     }
 
     // Rotates the bitmap by the specified degree.

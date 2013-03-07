@@ -107,7 +107,7 @@ public class HdrSoftwareRS {
         if (input == null) {
             Log.e(TAG, "Cannot set HdrSoftware input bitmap " + input_image + ": input is null");
             return;
-	}
+        }
 
         if (input_image < BITMAP_LOW || input_image > BITMAP_HI) {
             Log.e(TAG, "Invalid slot " + input_image + " for HDR input");
@@ -139,4 +139,3 @@ public class HdrSoftwareRS {
         }
     }
 }
-

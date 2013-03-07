@@ -693,7 +693,6 @@ public class PhotoModule
 
     private void processZoomValueChanged(int index) {
         if (index >= 0 && index <= mZoomMax) {
-            mZoomRenderer.setZoom(index);
             // Not useful to change zoom value when the activity is paused.
             if (mPaused) return;
             mZoomValue = index;
@@ -752,6 +751,10 @@ public class PhotoModule
         // Workaround for a buggy camera library
         if (Util.noFaceDetectOnFrontCamera()
                 && (CameraHolder.instance().getCameraInfo()[mCameraId].facing == CameraInfo.CAMERA_FACING_FRONT)) {
+            return;
+        }
+        if (Util.noFaceDetectOnBackCamera()
+                && (CameraHolder.instance().getCameraInfo()[mCameraId].facing == CameraInfo.CAMERA_FACING_BACK)) {
             return;
         }
 
@@ -2189,12 +2192,14 @@ public class PhotoModule
                 if (mParameters.isZoomSupported() && mZoomRenderer != null) {
                     int index = mZoomValue + 1;
                     processZoomValueChanged(index);
+                    mZoomRenderer.setZoom(index);
                 }
                 return true;
             case KeyEvent.KEYCODE_VOLUME_DOWN:
                 if (mParameters.isZoomSupported() && mZoomRenderer != null) {
                     int index = mZoomValue - 1;
                     processZoomValueChanged(index);
+                    mZoomRenderer.setZoom(index);
                 }
                 return true;
         }
