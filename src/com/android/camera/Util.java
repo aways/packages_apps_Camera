@@ -159,11 +159,6 @@ public class Util {
     private static boolean sDoSoftwareHDRShot;
     private static int sSoftwareHDRExposureSettleTime;
 
-    // Software HDR based on manual shots with multiple exposure
-    private static boolean sEnableSoftwareHDR;
-    private static boolean sDoSoftwareHDRShot;
-    private static int sSoftwareHDRExposureSettleTime;
-
     private Util() {
     }
 
