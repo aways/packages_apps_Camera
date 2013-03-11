@@ -89,7 +89,7 @@ public class Util {
 
     public static boolean isSupported(String value, List<String> supported) {
         return supported == null ? false : supported.indexOf(value) >= 0;
-    }
+    
 
     public static boolean isAutoExposureLockSupported(Parameters params) {
         return TRUE.equals(params.get(AUTO_EXPOSURE_LOCK_SUPPORTED));
