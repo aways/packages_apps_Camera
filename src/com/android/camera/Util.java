@@ -89,7 +89,7 @@ public class Util {
 
     public static boolean isSupported(String value, List<String> supported) {
         return supported == null ? false : supported.indexOf(value) >= 0;
-    }
+    
 
     public static boolean isAutoExposureLockSupported(Parameters params) {
         return TRUE.equals(params.get(AUTO_EXPOSURE_LOCK_SUPPORTED));
@@ -153,16 +153,6 @@ public class Util {
     // Workaround for QC cameras with broken face detection on front camera
     private static boolean sNoFaceDetectOnFrontCamera;
     private static boolean sNoFaceDetectOnBackCamera;
-
-    // Software HDR based on manual shots with multiple exposure
-    private static boolean sEnableSoftwareHDR;
-    private static boolean sDoSoftwareHDRShot;
-    private static int sSoftwareHDRExposureSettleTime;
-
-    // Software HDR based on manual shots with multiple exposure
-    private static boolean sEnableSoftwareHDR;
-    private static boolean sDoSoftwareHDRShot;
-    private static int sSoftwareHDRExposureSettleTime;
 
     private Util() {
     }
