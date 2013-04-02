@@ -68,7 +68,9 @@ public class CameraSettings {
     public static final String KEY_STORAGE = "pref_camera_storage_key";
     public static final String KEY_ISO_MODE = "pref_camera_iso_key";
     public static final String KEY_JPEG = "pref_camera_jpeg_key";
+    public static final String KEY_VIDEOCAMERA_JPEG = "pref_camera_video_jpeg_key";
     public static final String KEY_COLOR_EFFECT = "pref_camera_coloreffect_key";
+    public static final String KEY_VIDEOCAMERA_COLOR_EFFECT = "pref_camera_video_coloreffect_key";
     public static final String KEY_BURST_MODE = "pref_camera_burst_key";
 
     public static final String EXPOSURE_DEFAULT_VALUE = "0";
@@ -241,8 +243,7 @@ public class CameraSettings {
             }
         }
         if (cameraHdr != null && (!ApiHelper.HAS_CAMERA_HDR
-                    || !Util.isCameraHdrSupported(mParameters))
-                    && !Util.useSoftwareHDR()) {
+                    || !Util.isCameraHdrSupported(mParameters))) {
             removePreference(group, cameraHdr.getKey());
         }
         if (colorEffect != null) {
